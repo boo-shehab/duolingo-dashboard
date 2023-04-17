@@ -52,7 +52,7 @@ const Leaderboard = () => {
           <div>
             <Top3 data={Users.slice(0, 3)} />
             <div>
-              <SelectorFilter options={['All', ...cities]} tilte={filtered[0] === 'City' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'City')} />
+              <SelectorFilter options={['All', ...cities]} tilte={filtered[0] === 'City' ? filtered[1] : 'City'} onChange={(e) => handleFilterChange(e, 'City')} />
               <SelectorFilter options={['All', ...Countries]} tilte={filtered[0] === 'Country' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'Country')} />
               <SelectorFilter options={['All', ...Universities]} tilte={filtered[0] === 'University' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'University')} />
               <SelectorFilter options={['All', ...Filters]} tilte={filtered[0] === 'Courses #' ? filtered[1] : 'Courses #'} onChange={(e) => handleFilterChange(e, 'Courses #')} />

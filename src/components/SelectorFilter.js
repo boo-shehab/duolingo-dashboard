@@ -2,8 +2,8 @@
 import React from 'react';
 import './componentsStyle/SelectoerFilter.css';
 
-const SelectorFilter = ({ options, tilte, onChange }) => (
-  <select className="select" value={tilte} onChange={onChange}>
+const SelectorFilter = ({ options, title, onChange }) => (
+  <select className="select" value={title} label="test" onChange={onChange}>
     {options.map((option) => (
       <option key={option} value={option}>
         {option}
