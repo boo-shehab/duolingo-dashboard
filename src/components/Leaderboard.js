@@ -42,7 +42,7 @@ const Leaderboard = () => {
 
   const handleFilterChange = (e, filteredBy) => {
     setFilter([filteredBy, e.target.value]);
-    // setUsers(Users.filter((user) => user[filteredBy].includes(e.target.value)))
+    // setUsers(Users.filter((user) => user[filteredBy].includes(e.target.value)));
   };
   return (
     <>
@@ -52,10 +52,10 @@ const Leaderboard = () => {
           <div>
             <Top3 data={Users.slice(0, 3)} />
             <div>
-              <SelectorFilter options={['All', ...cities]} tilte={filtered[0] === 'City' ? filtered[1] : 'City'} onChange={(e) => handleFilterChange(e, 'City')} />
-              <SelectorFilter options={['All', ...Countries]} tilte={filtered[0] === 'Country' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'Country')} />
-              <SelectorFilter options={['All', ...Universities]} tilte={filtered[0] === 'University' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'University')} />
-              <SelectorFilter options={['All', ...Filters]} tilte={filtered[0] === 'Courses #' ? filtered[1] : 'Courses #'} onChange={(e) => handleFilterChange(e, 'Courses #')} />
+              <SelectorFilter options={['All', ...cities]} title={filtered[0] === 'City' ? filtered[1] : 'City'} onChange={(e) => handleFilterChange(e, 'City')} />
+              <SelectorFilter options={['All', ...Countries]} title={filtered[0] === 'Country' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'Country')} />
+              <SelectorFilter options={['All', ...Universities]} title={filtered[0] === 'University' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'University')} />
+              <SelectorFilter options={['All', ...Filters]} title={filtered[0] === 'Courses #' ? filtered[1] : 'Courses #'} onChange={(e) => handleFilterChange(e, 'Courses #')} />
               <input className="search-input" type="text" placeholder="Search by name" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
             <ul className="RankListContainer">
