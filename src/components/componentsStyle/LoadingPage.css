@@ -1,0 +1,15 @@
+.loading-page {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+
+img {
+  width: 300px;
+}
+
+h2 {
+  text-align: center;
+}

@@ -1,0 +1,41 @@
+.RankListItemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+}
+
+.RankListItemLeft {
+  display: flex;
+  align-items: center;
+}
+
+.RankListItemRank {
+  padding-right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+}
+
+.RankListItemIcon {
+  height: 48px;
+  width: 48px;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.RankListItemName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.RankListItemXp {
+  font-size: 16px;
+  color: #555;
+}

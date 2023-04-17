@@ -1,0 +1,53 @@
+.RankListItemContainer:nth-of-type(1) .RankListItemIcon {
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+  border: 3px solid gold;
+}
+
+.RankListItemContainer:nth-of-type(1) .RankListItemName,
+.RankListItemContainer:nth-of-type(1) .RankListItemXp,
+.RankListItemContainer:nth-of-type(1) div .RankListItemRank {
+  color: gold;
+  font-size: 20px;
+}
+
+.RankListItemContainer:nth-of-type(1) div .RankListItemRank {
+  font-size: 24px;
+}
+
+.RankListItemContainer:nth-of-type(2) .RankListItemIcon {
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+  border: 3px solid silver;
+}
+
+.RankListItemContainer:nth-of-type(2) .RankListItemName,
+.RankListItemContainer:nth-of-type(2) .RankListItemXp,
+.RankListItemContainer:nth-of-type(2) div .RankListItemRank {
+  color: silver;
+  font-size: 20px;
+}
+
+.RankListItemContainer:nth-of-type(2) div .RankListItemRank {
+  font-size: 24px;
+}
+
+.RankListItemContainer:nth-of-type(3) .RankListItemIcon {
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+  border: 3px solid darkgoldenrod;
+}
+
+.RankListItemContainer:nth-of-type(3) .RankListItemName,
+.RankListItemContainer:nth-of-type(3) .RankListItemXp,
+.RankListItemContainer:nth-of-type(3) div .RankListItemRank {
+  color: darkgoldenrod;
+  font-size: 20px;
+}
+
+.RankListItemContainer:nth-of-type(3) div .RankListItemRank {
+  font-size: 24px;
+}

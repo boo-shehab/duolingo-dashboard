@@ -1,15 +1,11 @@
-import { Provider } from 'react-redux';
-import Store from './app/store';
 import { Route, Routes } from 'react-router-dom';
+import Leaderboard from './components/Leaderboard';
 
 function App() {
   return (
-    <Provider store={Store}>
-      <Routes>
-
-      </Routes>
-      hello
-    </Provider>
+    <Routes>
+      <Route path="/" element={<Leaderboard />} />
+    </Routes>
   );
 }
 

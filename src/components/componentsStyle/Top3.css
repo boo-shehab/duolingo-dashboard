@@ -1,0 +1,63 @@
+.topUsers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.topUser img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.topUser {
+  text-align: center;
+}
+
+.topUser.user1 {
+  order: 2;
+}
+
+.topUser.user1 img {
+  border: 3px solid gold;
+  width: 170px;
+}
+
+.topUser.user1 p {
+  color: gold;
+  font-size: 28px;
+  text-shadow: 2px 2px 3px gold, 2px 2px 2px darkblue;
+}
+
+.topUser.user2 img {
+  border: 3px solid silver;
+}
+
+.topUser.user2 p {
+  color: silver;
+  font-size: 24px;
+  text-shadow: 2px 2px 3px silver, 2px 2px 2px darkblue;
+}
+
+.topUser.user3 img {
+  border: 3px solid darkgoldenrod;
+}
+
+.topUser.user3 p {
+  color: darkgoldenrod;
+  font-size: 24px;
+  text-shadow: 2px 2px 3px darkgoldenrod, 2px 2px 2px darkblue;
+}
+
+.topUser.user2 {
+  order: 1;
+}
+
+.topUser.user3 {
+  order: 3;
+}
+
+@media screen and (max-width: 700px) {
+  .topUsers {
+    display: none;
+  }
+}
