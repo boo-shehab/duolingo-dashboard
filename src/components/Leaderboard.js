@@ -15,7 +15,7 @@ const Leaderboard = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [Filters, setFilters] = useState([]);
 
-  // these should came from anthor table that contain the filters ["City, Country, University"]
+  // these filters should be fetched from anthor tables ["City, Country, University"]
   const cities = [...new Set(dummyData.map((user) => user.City))];
   const Countries = [...new Set(dummyData.map((user) => user.Country))];
   const Universities = [...new Set(dummyData.map((user) => user.University))];
@@ -58,11 +58,22 @@ const Leaderboard = () => {
               <SelectorFilter options={['All', ...Filters]} title={filtered[0] === 'Courses #' ? filtered[1] : 'Courses #'} onChange={(e) => handleFilterChange(e, 'Courses #')} />
               <input className="search-input" type="text" placeholder="Search by name" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
             </div>
-            <ul className="RankListContainer">
-              {filteredData.map((user) => (
-                <RankListItem key={user.id} user={user} rank={(Users.indexOf(user) + 1)} />
-              ))}
-            </ul>
+            <table className="RankListContainer">
+              <thead>
+                <tr>
+                  <th>Rnak</th>
+                  <th>Player</th>
+                  <th>Daily XP</th>
+                  <th>Overall Streak</th>
+                  <th>Overall XP</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredData.map((user) => (
+                  <RankListItem key={user.id} user={user} rank={(Users.indexOf(user) + 1)} />
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
     </>

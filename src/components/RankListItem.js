@@ -4,20 +4,26 @@ import './componentsStyle/RankListItem.css';
 import './componentsStyle/RankListItemTop3.css';
 
 const RankListItem = ({ user, rank }) => (
-  <li className="RankListItemContainer">
-    <div className="RankListItemLeft">
-      <span className="RankListItemRank">{rank}</span>
-      <img className="RankListItemIcon" src={user.Picture} alt={user.Name} />
-      <span className="RankListItemName">{user.Name}</span>
-    </div>
-    <div>
-      <span className="RankListItemXp">
-        {user['Daily XP Delta']}
-        {' '}
-        XP
-      </span>
-    </div>
-  </li>
+  <tr className="RankListItemContainer">
+    <td>{rank}</td>
+    <td className="RankListItemPlayer">
+      <img src={user.Picture} alt={user.Name} />
+      <span>{user.Name}</span>
+    </td>
+    <td>
+      {user['Daily XP Delta']}
+      {' '}
+      XP
+    </td>
+    <td>
+      {user['Overall Streak']}
+    </td>
+    <td>
+      {user['Last XP']}
+      {' '}
+      XP
+    </td>
+  </tr>
 );
 
 export default RankListItem;

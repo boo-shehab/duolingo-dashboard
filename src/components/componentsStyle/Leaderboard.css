@@ -1,8 +1,19 @@
 .RankListContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 24px;
+  margin: 25px 0;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.RankListContainer thead tr {
+  background-color: #009879;
+  color: white;
+  text-align: left;
+}
+
+.RankListContainer th {
+  padding: 12px 15px;
 }
 
 .search-input {

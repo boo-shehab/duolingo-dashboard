@@ -21,7 +21,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 20px;
 }
 
 code {
@@ -32,4 +31,23 @@ code {
     Consolas,
     'Courier New',
     monospace;
+}
+
+#root {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 767.98px) {
+  #root {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  #root {
+    width: 970px;
+  }
 }
