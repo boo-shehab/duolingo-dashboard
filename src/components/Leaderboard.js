@@ -1,79 +1,54 @@
-import React, { useState, useEffect } from 'react';
-import getUsers from '../airtable/Users';
-import getInfo from '../airtable/Info';
-import Top3 from './Top3';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import RankListItem from './RankListItem';
-import './componentsStyle/Leaderboard.css';
-import dummyData from '../airtable/dummyData';
 import LoadingPage from './LoadingPage';
-import SelectorFilter from './SelectorFilter';
+import { fetchUserData } from '../redux/userSlice';
+import { fetchInfoData } from '../redux/infoSlice';
+import RankListUsers from './RankListUsers';
+import './componentsStyle/Leaderboard.css';
 
 const Leaderboard = () => {
-  const [Users, setUsers] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [filtered, setFilter] = useState(['All', 'All']);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [Filters, setFilters] = useState([]);
-
-  // these filters should be fetched from anthor tables ["City, Country, University"]
-  const cities = [...new Set(dummyData.map((user) => user.City))];
-  const Countries = [...new Set(dummyData.map((user) => user.Country))];
-  const Universities = [...new Set(dummyData.map((user) => user.University))];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const { userData, loading } = useSelector((state) => state.user);
+  const { infoData, infoLoading } = useSelector((state) => state.info);
+  const [filteredData, setFilteredData] = useState('All');
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const FetchFilters = async () => {
-      const recrds = await getInfo();
-      setFilters(recrds);
-    };
-    FetchFilters();
-  }, [Filters]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const records = await getUsers(filtered);
-      setUsers(records);
-      setIsLoading(false);
-    };
-    setIsLoading(true);
-    fetchData();
-  }, [filtered]);
+    dispatch(fetchUserData());
+    dispatch(fetchInfoData());
+  }, [dispatch]);
 
-  const filteredData = Users.filter((user) => user.Name.toLowerCase()
-    .includes(searchQuery.toLowerCase()));
-
-  const handleFilterChange = (e, filteredBy) => {
-    setFilter([filteredBy, e.target.value]);
-    // setUsers(Users.filter((user) => user[filteredBy].includes(e.target.value)));
+  const handleFilterChange = (filter, index) => {
+    setActiveIndex(index);
+    setFilteredData(filter);
   };
+
   return (
     <>
-      {isLoading
+      {(loading || infoLoading)
         ? <LoadingPage />
         : (
           <div>
-            <Top3 data={Users.slice(0, 3)} />
-            <div>
-              <SelectorFilter options={['All', ...cities]} title={filtered[0] === 'City' ? filtered[1] : 'City'} onChange={(e) => handleFilterChange(e, 'City')} />
-              <SelectorFilter options={['All', ...Countries]} title={filtered[0] === 'Country' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'Country')} />
-              <SelectorFilter options={['All', ...Universities]} title={filtered[0] === 'University' ? filtered[1] : 'All'} onChange={(e) => handleFilterChange(e, 'University')} />
-              <SelectorFilter options={['All', ...Filters]} title={filtered[0] === 'Courses #' ? filtered[1] : 'Courses #'} onChange={(e) => handleFilterChange(e, 'Courses #')} />
-              <input className="search-input" type="text" placeholder="Search by name" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+            <div className="filter-buttons">
+              <button type="button" className={activeIndex === 0 ? 'active' : ''} onClick={() => handleFilterChange('All', 0)}>All</button>
+              <button type="button" className={activeIndex === 1 ? 'active' : ''} onClick={() => handleFilterChange('Study Place', 1)}>Study Place</button>
+              <button type="button" className={activeIndex === 2 ? 'active' : ''} onClick={() => handleFilterChange('City', 2)}>City</button>
+              <button type="button" className={activeIndex === 3 ? 'active' : ''} onClick={() => handleFilterChange('Province', 3)}>Province</button>
+              <button type="button" className={activeIndex === 4 ? 'active' : ''} onClick={() => handleFilterChange('Players', 4)}>Players</button>
             </div>
-            <table className="RankListContainer">
-              <thead>
-                <tr>
-                  <th>Rnak</th>
-                  <th>Player</th>
-                  <th>Daily XP</th>
-                  <th>Overall Streak</th>
-                  <th>Overall XP</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredData.map((user) => (
-                  <RankListItem key={user.id} user={user} rank={(Users.indexOf(user) + 1)} />
-                ))}
-              </tbody>
-            </table>
+            {(filteredData === 'All' || filteredData === 'Province') ? (
+              <RankListItem infoData={infoData[2]} filterTaype="Province" />
+            ) : '' }
+            {(filteredData === 'All' || filteredData === 'City') ? (
+              <RankListItem infoData={infoData[1]} filterTaype="City" />
+            ) : '' }
+            {(filteredData === 'All' || filteredData === 'Study Place') ? (
+              <RankListItem infoData={infoData[0]} filterTaype="Study Place" />
+            ) : '' }
+            {(filteredData === 'All' || filteredData === 'Players') ? (
+              <RankListUsers userData={userData} />
+            ) : '' }
           </div>
         )}
     </>
