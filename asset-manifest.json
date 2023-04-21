@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/duolingo-dashboard/static/css/main.582657c7.css",
-    "main.js": "/duolingo-dashboard/static/js/main.3fcfcf37.js",
+    "main.css": "/duolingo-dashboard/static/css/main.260188ee.css",
+    "main.js": "/duolingo-dashboard/static/js/main.b9246b4b.js",
     "static/js/787.03b71a73.chunk.js": "/duolingo-dashboard/static/js/787.03b71a73.chunk.js",
     "static/media/duolingo_login.gif": "/duolingo-dashboard/static/media/duolingo_login.42619dd30cecb0a66dff.gif",
     "index.html": "/duolingo-dashboard/index.html",
-    "main.582657c7.css.map": "/duolingo-dashboard/static/css/main.582657c7.css.map",
-    "main.3fcfcf37.js.map": "/duolingo-dashboard/static/js/main.3fcfcf37.js.map",
+    "main.260188ee.css.map": "/duolingo-dashboard/static/css/main.260188ee.css.map",
+    "main.b9246b4b.js.map": "/duolingo-dashboard/static/js/main.b9246b4b.js.map",
     "787.03b71a73.chunk.js.map": "/duolingo-dashboard/static/js/787.03b71a73.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.582657c7.css",
-    "static/js/main.3fcfcf37.js"
+    "static/css/main.260188ee.css",
+    "static/js/main.b9246b4b.js"
   ]
 }
