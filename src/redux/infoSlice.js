@@ -36,29 +36,36 @@ export const fetchInfoData = createAsyncThunk(
     StudyPlace = Object.entries(StudyPlace).sort((a, b) => b[1].xpCounter - a[1].xpCounter);
     Neighborhood = Object.entries(Neighborhood).sort((a, b) => b[1].xpCounter - a[1].xpCounter);
     Province = Object.entries(Province).sort((a, b) => b[1].xpCounter - a[1].xpCounter);
-    return [StudyPlace, Neighborhood, Province];
+    return [StudyPlace, Neighborhood, Province, infoRecords.map((user) => user.fields)];
   },
 );
 
 export const infoSlice = createSlice({
   name: 'info',
   initialState: {
-    infoData: [],
-    infoLoading: true,
+    StudyPlace: [],
+    Neighborhood: [],
+    Province: [],
+    Users: [],
+    loading: true,
     error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchInfoData.pending, (state) => {
-        state.infoLoading = true;
+        state.loading = true;
       })
       .addCase(fetchInfoData.fulfilled, (state, action) => {
-        state.infoLoading = false;
-        state.infoData = action.payload;
+        state.loading = false;
+        const [StudyPlace, Neighborhood, Province, users] = action.payload;
+        state.StudyPlace = StudyPlace;
+        state.Neighborhood = Neighborhood;
+        state.Province = Province;
+        state.Users = users;
       })
       .addCase(fetchInfoData.rejected, (state, action) => {
-        state.infoLoading = false;
+        state.loading = false;
         state.error = action.error.message;
       });
   },

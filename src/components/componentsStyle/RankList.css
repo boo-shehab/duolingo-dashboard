@@ -1,0 +1,74 @@
+.RankListTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.RankListContainer {
+  margin: 25px 0;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.RankListContainer thead tr {
+  background-color: #009879;
+  color: white;
+  text-align: left;
+}
+
+.RankListContainer th {
+  padding: 12px 15px;
+}
+
+.RankListItemPlayer {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.RankListItemPlayer img {
+  height: 48px;
+  width: 48px;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.RankListItemPlayer span {
+  font-weight: bold;
+}
+
+td {
+  padding: 12px 15px;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+}
+
+td:first-of-type {
+  width: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.RankListFooter {
+  text-align: center;
+}
+
+.RankListButton {
+  background-color: hsl(122, 39%, 49%);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.RankListButton:hover {
+  background-color: #3e8e41;
+}

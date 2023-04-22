@@ -1,46 +1,68 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-import React from 'react';
-import './componentsStyle/RankListItem.css';
-import './componentsStyle/RankListItemTop3.css';
+import React, { useState } from 'react';
+import './componentsStyle/RankList.css';
+import './componentsStyle/RankListUsersTop3.css';
+import Top3 from './Top3';
 
-const RankListUsers = ({ userData }) => (
-  <>
-    <table className="RankListContainer">
-      <thead>
-        <tr>
-          <th>Rnak</th>
-          <th>Player</th>
-          <th>Daily XP</th>
-          <th>Overall Streak</th>
-          <th>Overall XP</th>
-        </tr>
-      </thead>
-      <tbody>
-        {userData.map((user, index) => (
-          <tr key={user.id} className="RankListItemContainer">
-            <td>{index + 1}</td>
-            <td className="RankListItemPlayer">
-              <img src={user.Picture} alt={user.Name} />
-              <span>{user.Name}</span>
-            </td>
-            <td>
-              {user['Daily XP Delta']}
-              {' '}
-              XP
-            </td>
-            <td>
-              {user['Overall Streak']}
-            </td>
-            <td>
-              {user['Last XP']}
-              {' '}
-              XP
+const RankListUsers = ({ userData, filter, filteredData }) => {
+  const [sliceTable, setSliceTable] = useState(10);
+  if (filter[0] !== 'All')userData = userData.filter((user) => user[filter[0]] === filter[1]);
+
+  const handleSeeMore = () => {
+    setSliceTable(sliceTable + 10);
+  };
+  return (
+    <>
+      {filteredData !== 'All' ? (
+        <div>
+          <Top3 data={userData.slice(0, 3)} />
+        </div>
+      )
+        : (
+          <h2 className="RankListTitle">Players</h2>
+        )}
+
+      <table className="RankListContainer">
+        <thead>
+          <tr>
+            <th>Rnak</th>
+            <th>Players</th>
+            <th>Daily XP</th>
+            <th>Streak</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userData.slice(0, sliceTable).map((user, index) => (
+            <tr key={user.id} className="RankListItemContainer">
+              <td>{index + 1}</td>
+              <td className="RankListItemPlayer">
+                <img src={user.Pic[0].url} alt={user['Full Name']} />
+                <span>{user.Name}</span>
+              </td>
+              <td>
+                {user['Daily XP'][0]}
+                {' '}
+                XP
+              </td>
+              <td>
+                {user.Streak}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={4} className="RankListFooter">
+              <button type="button" className="RankListButton" onClick={handleSeeMore}>
+                See more
+              </button>
             </td>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </>
-);
+        </tfoot>
+      </table>
+    </>
+  );
+};
 
 export default RankListUsers;

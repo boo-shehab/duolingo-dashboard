@@ -1,37 +1,55 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import './componentsStyle/RankListItem.css';
-import './componentsStyle/RankListItemTop3.css';
+import React, { useState } from 'react';
+import './componentsStyle/RankList.css';
 
-const RankListItem = ({ infoData, filterTaype }) => (
-  <table className="RankListContainer">
-    <thead>
-      <tr>
-        <th>Rnak</th>
-        <th>{filterTaype}</th>
-        <th>Daily XP</th>
-        <th>Players</th>
-      </tr>
-    </thead>
-    <tbody>
-      {infoData.map((user, index) => (
-        <tr key={user.id} className="RankListItemContainer">
-          <td>{index + 1}</td>
-          <td className="RankListItemPlayer">
-            <span>{user[0]}</span>
-          </td>
-          <td>
-            {user[1].xpCounter}
-            {' '}
-            XP
-          </td>
-          <td>
-            {user[1].userCounter}
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-);
+const RankListItem = ({ infoData, filterTaype, onRowClick }) => {
+  const [sliceTable, setSliceTable] = useState(10);
+  const handleSeeMore = () => {
+    setSliceTable(sliceTable + 10);
+  };
+
+  return (
+    <>
+      <h2 className="RankListTitle">{filterTaype}</h2>
+      <table className="RankListContainer">
+        <thead>
+          <tr>
+            <th>Rnak</th>
+            <th>{filterTaype}</th>
+            <th>Daily XP</th>
+            <th>Players</th>
+          </tr>
+        </thead>
+        <tbody>
+          {infoData.slice(0, sliceTable).map((user, index) => (
+            <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filterTaype, user[0]])}>
+              <td>{index + 1}</td>
+              <td className="RankListItemPlayer">
+                <span>{user[0]}</span>
+              </td>
+              <td>
+                {user[1].xpCounter}
+                {' '}
+                XP
+              </td>
+              <td>
+                {user[1].userCounter}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={4} className="RankListFooter">
+              <button type="button" className="RankListButton" onClick={handleSeeMore}>
+                See more
+              </button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </>
+  );
+};
 
 export default RankListItem;

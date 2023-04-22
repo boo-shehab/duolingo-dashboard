@@ -1,49 +1,24 @@
 .filter-buttons {
   display: flex;
-  list-style: none;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .filter-buttons button {
-  flex: 1 1;
-  padding: 12px;
-  transition: 0.2s;
-}
-
-.filter-buttons .active {
-  background-color: #ddd;
-}
-
-.RankListContainer {
-  margin: 25px 0;
-  border-collapse: collapse;
-  font-size: 0.9em;
-  width: 100%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-}
-
-.RankListContainer thead tr {
-  background-color: #009879;
-  color: white;
-  text-align: left;
-}
-
-.RankListContainer th {
-  padding: 12px 15px;
-}
-
-.search-input {
-  margin: 16px 0 0;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
   border-radius: 4px;
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 18px;
+  font-weight: bold;
+  color: #009879;
   background-color: #fff;
-  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.search-input:focus {
-  outline: none;
-  border-color: #07f;
-  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+.filter-buttons button:hover,
+.filter-buttons button.active {
+  background-color: #009879;
+  color: #fff;
 }
