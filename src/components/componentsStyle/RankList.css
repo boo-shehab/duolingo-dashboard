@@ -1,21 +1,29 @@
+.listBox {
+  margin-bottom: 50px;
+  margin-top: 85px;
+}
+
+.listBox.not-active {
+  display: none;
+}
+
 .RankListTitle {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0;
-  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 67px;
+  color: #fff;
+  margin-bottom: 50px;
 }
 
 .RankListContainer {
-  margin: 25px 0;
   border-collapse: collapse;
   font-size: 0.9em;
   width: 100%;
+  background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .RankListContainer thead tr {
-  background-color: #009879;
-  color: white;
+  color: #72be00;
   text-align: left;
 }
 
@@ -23,10 +31,36 @@
   padding: 12px 15px;
 }
 
+.RankListContainer th:nth-child(2) {
+  width: 60%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-child {
+  box-shadow: 0 13px 21px -21px rgba(0, 0, 0, 0.6);
+}
+
+td {
+  padding: 12px 15px;
+  font-size: 16px;
+  color: #555;
+  cursor: pointer;
+  font-weight: bold;
+  height: 80px;
+}
+
+td:first-of-type {
+  width: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
 .RankListItemPlayer {
   display: flex;
   align-items: center;
-  height: 80px;
 }
 
 .RankListItemPlayer img {
@@ -36,36 +70,20 @@
   border-radius: 50%;
 }
 
-.RankListItemPlayer span {
-  font-weight: bold;
-}
-
-td {
-  padding: 12px 15px;
-  font-size: 16px;
-  color: #555;
-  cursor: pointer;
-}
-
-td:first-of-type {
-  width: 0;
-  font-size: 28px;
-  font-weight: bold;
-}
-
 .RankListFooter {
   text-align: center;
 }
 
 .RankListButton {
-  background-color: hsl(122, 39%, 49%);
+  background-color: #72be00;
   color: white;
   border: none;
-  border-radius: 3px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 53px;
+  box-shadow: inset 0 -4px 4px rgba(0, 0, 0, 0.25);
   transition: background-color 0.2s ease-in-out;
 }
 

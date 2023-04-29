@@ -2,14 +2,17 @@
 import React, { useState } from 'react';
 import './componentsStyle/RankList.css';
 
-const RankListItem = ({ infoData, filterTaype, onRowClick }) => {
+const RankListItem = ({
+  infoData, filterTaype, filteredData, onRowClick,
+}) => {
   const [sliceTable, setSliceTable] = useState(10);
+  const isActive = (filteredData === 'All' || filteredData === filterTaype);
   const handleSeeMore = () => {
     setSliceTable(sliceTable + 10);
   };
 
   return (
-    <>
+    <div className={`listBox ${isActive ? '' : 'not-active'}`}>
       <h2 className="RankListTitle">{filterTaype}</h2>
       <table className="RankListContainer">
         <thead>
@@ -24,7 +27,7 @@ const RankListItem = ({ infoData, filterTaype, onRowClick }) => {
           {infoData.slice(0, sliceTable).map((user, index) => (
             <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filterTaype, user[0]])}>
               <td>{index + 1}</td>
-              <td className="RankListItemPlayer">
+              <td>
                 <span>{user[0]}</span>
               </td>
               <td>
@@ -48,7 +51,7 @@ const RankListItem = ({ infoData, filterTaype, onRowClick }) => {
           </tr>
         </tfoot>
       </table>
-    </>
+    </div>
   );
 };
 

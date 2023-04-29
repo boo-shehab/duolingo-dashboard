@@ -1,25 +1,7 @@
-.RankListItemContainer:nth-of-type(1) img {
-  border: 3px solid gold;
-}
-
-.RankListItemContainer:nth-of-type(1) td {
-  color: gold;
-}
-
-.RankListItemContainer:nth-of-type(2) img {
-  border: 3px solid silver;
-}
-
-.RankListItemContainer:nth-of-type(2) td {
-  color: silver;
-}
-
-.RankListItemContainer:nth-of-type(3) img {
-  border: 3px solid darkgoldenrod;
-}
-
+.RankListItemContainer:nth-of-type(1) td,
+.RankListItemContainer:nth-of-type(2) td,
 .RankListItemContainer:nth-of-type(3) td {
-  color: darkgoldenrod;
+  color: white;
 }
 
 .RankListItemContainer:nth-of-type(1) td:not(:first-child),
@@ -31,7 +13,17 @@
 .RankListItemContainer:nth-of-type(1) img,
 .RankListItemContainer:nth-of-type(2) img,
 .RankListItemContainer:nth-of-type(3) img {
-  height: 60px;
-  width: 60px;
-  margin-right: 16px;
+  border: 2px solid white;
+}
+
+.RankListItemContainer:nth-of-type(1) {
+  background-color: #f2b800;
+}
+
+.RankListItemContainer:nth-of-type(2) {
+  background-color: #e4c358;
+}
+
+.RankListItemContainer:nth-of-type(3) {
+  background-color: #e4d297;
 }

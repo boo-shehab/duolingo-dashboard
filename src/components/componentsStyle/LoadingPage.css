@@ -1,15 +1,17 @@
 .loading-page {
   display: grid;
   justify-content: center;
-  align-items: center;
   align-content: center;
   height: 100vh;
 }
 
-img {
+.loading-page img {
   width: 300px;
 }
 
-h2 {
+.loading-page h2 {
+  font-size: 40px;
+  line-height: 67px;
   text-align: center;
+  color: #fff;
 }

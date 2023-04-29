@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { infoSlice } from './infoSlice';
+import { rankSlice } from './rankSlice';
 
 const store = configureStore({
   reducer: {
-    info: infoSlice.reducer,
+    ranks: rankSlice.reducer,
   },
 });
 

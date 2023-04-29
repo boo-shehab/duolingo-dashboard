@@ -5,15 +5,18 @@ import './componentsStyle/RankList.css';
 import './componentsStyle/RankListUsersTop3.css';
 import Top3 from './Top3';
 
-const RankListUsers = ({ userData, filter, filteredData }) => {
+const RankListUsers = ({
+  userData, filter, filterTaype, filteredData,
+}) => {
   const [sliceTable, setSliceTable] = useState(10);
+  const isActive = (filteredData === 'All' || filteredData === filterTaype);
   if (filter[0] !== 'All')userData = userData.filter((user) => user[filter[0]] === filter[1]);
 
   const handleSeeMore = () => {
     setSliceTable(sliceTable + 10);
   };
   return (
-    <>
+    <div className={`listBox ${isActive ? '' : 'not-active'}`}>
       {filteredData !== 'All' ? (
         <div>
           <Top3 data={userData.slice(0, 3)} />
@@ -61,7 +64,7 @@ const RankListUsers = ({ userData, filter, filteredData }) => {
           </tr>
         </tfoot>
       </table>
-    </>
+    </div>
   );
 };
 
