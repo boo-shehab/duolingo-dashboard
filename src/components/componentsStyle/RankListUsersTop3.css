@@ -1,7 +1,40 @@
+.RankListItemContainer:nth-of-type(1) td a,
+.RankListItemContainer:nth-of-type(2) td a,
+.RankListItemContainer:nth-of-type(3) td a,
 .RankListItemContainer:nth-of-type(1) td,
 .RankListItemContainer:nth-of-type(2) td,
 .RankListItemContainer:nth-of-type(3) td {
   color: white;
+}
+
+.RankListItemContainer:nth-of-type(1) td:first-of-type,
+.RankListItemContainer:nth-of-type(2) td:first-of-type,
+.RankListItemContainer:nth-of-type(3) td:first-of-type {
+  font-size: 0;
+}
+
+.RankListItemContainer:nth-of-type(1) td:first-of-type::before,
+.RankListItemContainer:nth-of-type(2) td:first-of-type::before,
+.RankListItemContainer:nth-of-type(3) td:first-of-type::before {
+  content: "";
+  display: inline-block;
+  width: 29px;
+  height: 56px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.RankListItemContainer:nth-of-type(1) td:first-of-type::before {
+  background-image: url('../../images/medal_top_1.svg');
+}
+
+.RankListItemContainer:nth-of-type(2) td:first-of-type::before {
+  background-image: url('../../images/medal_top_2.svg');
+}
+
+.RankListItemContainer:nth-of-type(3) td:first-of-type::before {
+  background-image: url('../../images/medal_top_3.svg');
 }
 
 .RankListItemContainer:nth-of-type(1) td:not(:first-child),

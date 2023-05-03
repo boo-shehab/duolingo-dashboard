@@ -19,7 +19,7 @@ const RankListUsers = ({
     <div className={`listBox ${isActive ? '' : 'not-active'}`}>
       {filteredData !== 'All' ? (
         <div>
-          <Top3 data={userData.slice(0, 3)} />
+          <Top3 data={userData.slice(0, 3)} on={filter[1]} />
         </div>
       )
         : (
@@ -40,8 +40,10 @@ const RankListUsers = ({
             <tr key={user.id} className="RankListItemContainer">
               <td>{index + 1}</td>
               <td className="RankListItemPlayer">
-                <img src={user.Pic[0].url} alt={user['Full Name']} />
-                <span>{user.Name}</span>
+                <a href={user['Duolingo Profile URL']}>
+                  <img src={user.Pic[0].url} alt={user['Full Name']} />
+                  <span>{user.Name}</span>
+                </a>
               </td>
               <td>
                 {user['Daily XP'][0]}

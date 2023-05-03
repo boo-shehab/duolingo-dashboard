@@ -41,15 +41,19 @@ const RankListItem = ({
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={4} className="RankListFooter">
-              <button type="button" className="RankListButton" onClick={handleSeeMore}>
-                See more
-              </button>
-            </td>
-          </tr>
-        </tfoot>
+        {(sliceTable < infoData.length)
+          ? (
+            <tfoot>
+              <tr>
+                <td colSpan={4} className="RankListFooter">
+                  <button type="button" className="RankListButton" onClick={handleSeeMore}>
+                    See more
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+          )
+          : ''}
       </table>
     </div>
   );

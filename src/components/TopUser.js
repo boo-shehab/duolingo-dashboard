@@ -4,7 +4,9 @@ import triangle from '../images/triangle.svg';
 
 const TopUser = ({ user, index }) => (
   <div className={`topUser user${index + 1}`}>
-    <img src={user.Pic[0].thumbnails.large.url} alt={user.Name} />
+    <div className="user-image">
+      <img src={user.Pic[0].thumbnails.large.url} alt={user.Name} />
+    </div>
     <p className="TopUser-name">{user.Name}</p>
     <p className="TopUser-xp">
       XP

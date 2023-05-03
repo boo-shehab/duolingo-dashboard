@@ -58,9 +58,12 @@ td:first-of-type {
   font-weight: bold;
 }
 
-.RankListItemPlayer {
+.RankListItemPlayer a {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  color: #555;
+  text-decoration: none;
 }
 
 .RankListItemPlayer img {
@@ -89,4 +92,10 @@ td:first-of-type {
 
 .RankListButton:hover {
   background-color: #3e8e41;
+}
+
+@media (max-width: 600px) {
+  .RankListItemPlayer a span {
+    font-size: 16px;
+  }
 }

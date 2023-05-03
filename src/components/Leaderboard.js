@@ -21,7 +21,7 @@ const Leaderboard = () => {
   }, [dispatch]);
 
   const handleFilterChange = (filter, index) => {
-    if (filter === 'User') setFilteredUserData(['All', 'All']);
+    if (filteredUserData[0] !== 'All') setFilteredUserData(['All', 'All']);
 
     setActiveIndex(index);
     setFilteredData(filter);
