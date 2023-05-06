@@ -42,7 +42,7 @@ const RankListUsers = ({
               <td className="RankListItemPlayer">
                 <a href={user['Duolingo Profile URL']}>
                   <img src={user.Pic[0].url} alt={user['Full Name']} />
-                  <span>{user.Name}</span>
+                  <span>{user.Name.split(' ').slice(0, 2).join(' ')}</span>
                 </a>
               </td>
               <td>
