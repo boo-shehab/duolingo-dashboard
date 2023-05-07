@@ -13,13 +13,13 @@ function App() {
     <Router>
       <ul className="filter-buttons">
         <li>
-          <Link to="/">All</Link>
+          <Link to="/duolingo-dashboard">All</Link>
         </li>
         <li>
           <Link to="/Study Place">Study</Link>
         </li>
         <li>
-          <Link to="/Neighborhood">Neighborhood</Link>
+          <Link to="/Neighborhood">City</Link>
         </li>
         <li>
           <Link to="/Province">Province</Link>
@@ -30,6 +30,7 @@ function App() {
       </ul>
       <Routes>
         <Route path="/" element={<Leaderboard />} />
+        <Route path="/duolingo-dashboard" element={<Leaderboard />} />
         <Route path="/users" element={<RankListUsers showTop3 />} />
         <Route path="/users/:filterKey/:filterValue" element={<RankListUsers showTop3 />} />
         <Route path="/:filter" element={<RankListItem />} />
