@@ -8,14 +8,15 @@ import LoadingPage from './LoadingPage';
 
 const RankListItem = ({ typeOfItem }) => {
   const { filter } = useParams();
-  const infoData = useSelector((state) => state.ranks[typeOfItem || filter]);
+  const filteredBy = typeOfItem || filter;
+  const infoData = useSelector((state) => state.ranks[filteredBy]);
   const { loading } = useSelector((state) => state.ranks);
   const [sliceTable, setSliceTable] = useState(10);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchRanksData());
-  }, [dispatch, filter]);
+  }, [dispatch, filter, typeOfItem]);
 
   const handleSeeMore = () => {
     setSliceTable(sliceTable + 10);
@@ -31,7 +32,7 @@ const RankListItem = ({ typeOfItem }) => {
 
   return (
     <div className="listBox">
-      <h2 className="RankListTitle">{filter}</h2>
+      <h2 className="RankListTitle">{filteredBy}</h2>
       <table className="RankListContainer">
         <thead>
           <tr>
@@ -43,7 +44,7 @@ const RankListItem = ({ typeOfItem }) => {
         </thead>
         <tbody>
           {infoData.slice(0, sliceTable).map((user, index) => (
-            <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filter, user[0]])}>
+            <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filteredBy, user[0]])}>
               <td>{index + 1}</td>
               <td>
                 <span>{user[0]}</span>
