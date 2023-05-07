@@ -30,6 +30,7 @@ function App() {
       </ul>
       <Routes>
         <Route path="/" element={<Leaderboard />} />
+        <Route path="*" element={<Leaderboard />} />
         <Route path="/duolingo-dashboard" element={<Leaderboard />} />
         <Route path="/duolingo-dashboard/users" element={<RankListUsers showTop3 />} />
         <Route path="/duolingo-dashboard/users/:filterKey/:filterValue" element={<RankListUsers showTop3 />} />
