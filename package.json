@@ -21,7 +21,7 @@
   },
   "homepage": "https://boo-shehab.github.io/duolingo-dashboard",
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
