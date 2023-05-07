@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/duolingo-dashboard/static/css/main.0d4d95a3.css",
-    "main.js": "/duolingo-dashboard/static/js/main.d3a795b4.js",
+    "main.css": "/duolingo-dashboard/static/css/main.0ef385d5.css",
+    "main.js": "/duolingo-dashboard/static/js/main.3ce7ab4c.js",
     "static/js/787.03b71a73.chunk.js": "/duolingo-dashboard/static/js/787.03b71a73.chunk.js",
     "static/media/duolingo_login.gif": "/duolingo-dashboard/static/media/duolingo_login.42619dd30cecb0a66dff.gif",
-    "static/media/stars.svg": "/duolingo-dashboard/static/media/stars.67a6c16bab62c055e8b6.svg",
-    "static/media/medal_top_1.svg": "/duolingo-dashboard/static/media/medal_top_1.c4b9d1d6eba9860c4efa.svg",
-    "static/media/medal_coin_top_1.svg": "/duolingo-dashboard/static/media/medal_coin_top_1.6bc66a9a6039256510ee.svg",
-    "static/media/medal_top_3.svg": "/duolingo-dashboard/static/media/medal_top_3.90f702e0114240568a99.svg",
-    "static/media/medal_top_2.svg": "/duolingo-dashboard/static/media/medal_top_2.a3c0c9532f2c157a947a.svg",
-    "static/media/medal_coin_top_3.svg": "/duolingo-dashboard/static/media/medal_coin_top_3.48a6bb14c2db45d1e626.svg",
-    "static/media/medal_coin_top_2.svg": "/duolingo-dashboard/static/media/medal_coin_top_2.3f9dca071b5deef4c55c.svg",
+    "static/media/stars.svg": "/duolingo-dashboard/static/media/stars.061570d5368eaf802252.svg",
+    "static/media/medal_top_1.svg": "/duolingo-dashboard/static/media/medal_top_1.69e3e8574ba6633403a1.svg",
+    "static/media/medal_coin_top_1.svg": "/duolingo-dashboard/static/media/medal_coin_top_1.d1845ac36aa29586256e.svg",
+    "static/media/medal_top_3.svg": "/duolingo-dashboard/static/media/medal_top_3.3d263e3b58e0ab71173b.svg",
+    "static/media/medal_top_2.svg": "/duolingo-dashboard/static/media/medal_top_2.dd15538c8123ad75273b.svg",
+    "static/media/medal_coin_top_3.svg": "/duolingo-dashboard/static/media/medal_coin_top_3.67d9059d753c234b8016.svg",
+    "static/media/medal_coin_top_2.svg": "/duolingo-dashboard/static/media/medal_coin_top_2.239533a42c887acdfc5f.svg",
     "index.html": "/duolingo-dashboard/index.html",
-    "static/media/triangle.svg": "/duolingo-dashboard/static/media/triangle.0583bc6c42a27a17288ecde0e3848fc1.svg",
-    "main.0d4d95a3.css.map": "/duolingo-dashboard/static/css/main.0d4d95a3.css.map",
-    "main.d3a795b4.js.map": "/duolingo-dashboard/static/js/main.d3a795b4.js.map",
+    "static/media/triangle.svg": "/duolingo-dashboard/static/media/triangle.42f5d3212f07f7447fd568262b6d9b88.svg",
+    "main.0ef385d5.css.map": "/duolingo-dashboard/static/css/main.0ef385d5.css.map",
+    "main.3ce7ab4c.js.map": "/duolingo-dashboard/static/js/main.3ce7ab4c.js.map",
     "787.03b71a73.chunk.js.map": "/duolingo-dashboard/static/js/787.03b71a73.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d4d95a3.css",
-    "static/js/main.d3a795b4.js"
+    "static/css/main.0ef385d5.css",
+    "static/js/main.3ce7ab4c.js"
   ]
 }
