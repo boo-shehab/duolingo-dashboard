@@ -1,31 +1,49 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './componentsStyle/RankList.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchRanksData } from '../redux/rankSlice';
+import LoadingPage from './LoadingPage';
 
-const RankListItem = ({
-  infoData, filterTaype, filteredData, onRowClick,
-}) => {
+const RankListItem = ({ typeOfItem }) => {
+  const { filter } = useParams();
+  const infoData = useSelector((state) => state.ranks[typeOfItem || filter]);
+  const { loading } = useSelector((state) => state.ranks);
   const [sliceTable, setSliceTable] = useState(10);
-  const isActive = (filteredData === 'All' || filteredData === filterTaype);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchRanksData());
+  }, [dispatch, filter]);
+
   const handleSeeMore = () => {
     setSliceTable(sliceTable + 10);
   };
 
+  const onRowClick = (e) => {
+    window.location.href = `${window.location.origin}/users/${e[0]}/${e[1]}`;
+  };
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+
   return (
-    <div className={`listBox ${isActive ? '' : 'not-active'}`}>
-      <h2 className="RankListTitle">{filterTaype}</h2>
+    <div className="listBox">
+      <h2 className="RankListTitle">{filter}</h2>
       <table className="RankListContainer">
         <thead>
           <tr>
             <th>Rnak</th>
-            <th>{filterTaype}</th>
+            <th>{filter}</th>
             <th>Daily XP</th>
             <th>Players</th>
           </tr>
         </thead>
         <tbody>
           {infoData.slice(0, sliceTable).map((user, index) => (
-            <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filterTaype, user[0]])}>
+            <tr key={user.id} className="RankListItemContainer" onClick={() => onRowClick([filter, user[0]])}>
               <td>{index + 1}</td>
               <td>
                 <span>{user[0]}</span>

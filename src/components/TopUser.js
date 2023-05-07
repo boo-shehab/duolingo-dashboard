@@ -7,7 +7,7 @@ const TopUser = ({ user, index }) => (
     <div className="user-image">
       <img src={user.Pic[0].thumbnails.large.url} alt={user.Name} />
     </div>
-    <p className="TopUser-name">{user.Name}</p>
+    <p className="TopUser-name">{user.Name.split(' ').slice(0, 2).join(' ')}</p>
     <p className="TopUser-xp">
       XP
       {' '}

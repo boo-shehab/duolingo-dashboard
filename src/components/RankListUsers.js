@@ -1,25 +1,37 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './componentsStyle/RankList.css';
 import './componentsStyle/RankListUsersTop3.css';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Top3 from './Top3';
+import LoadingPage from './LoadingPage';
+import { fetchUsersData } from '../redux/userSlice';
 
-const RankListUsers = ({
-  userData, filter, filterTaype, filteredData,
-}) => {
+const RankListUsers = ({ showTop3 }) => {
+  const { filterKey, filterValue } = useParams();
+  const { users, loading } = useSelector((state) => state.users);
   const [sliceTable, setSliceTable] = useState(10);
-  const isActive = (filteredData === 'All' || filteredData === filterTaype);
-  if (filter[0] !== 'All')userData = userData.filter((user) => user[filter[0]] === filter[1]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsersData({ filterKey, filterValue }));
+  }, [dispatch, filterKey, filterValue]);
 
   const handleSeeMore = () => {
     setSliceTable(sliceTable + 10);
   };
+
+  if (loading) {
+    return <LoadingPage />;
+  }
+
   return (
-    <div className={`listBox ${isActive ? '' : 'not-active'}`}>
-      {filteredData !== 'All' ? (
+    <div className="listBox">
+      {showTop3 ? (
         <div>
-          <Top3 data={userData.slice(0, 3)} on={filter[1]} />
+          <Top3 data={users.slice(0, 3)} on={filterValue} />
         </div>
       )
         : (
@@ -36,7 +48,7 @@ const RankListUsers = ({
           </tr>
         </thead>
         <tbody>
-          {userData.slice(0, sliceTable).map((user, index) => (
+          {users.slice(0, sliceTable).map((user, index) => (
             <tr key={user.id} className="RankListItemContainer">
               <td>{index + 1}</td>
               <td className="RankListItemPlayer">

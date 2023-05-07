@@ -12,33 +12,29 @@ export const fetchRanksData = createAsyncThunk(
     let Neighborhood = {};
     let Province = {};
     infoRecords.forEach((info) => {
-      try {
+      if (info.fields['Study Place']) {
         StudyPlace[info.fields['Study Place']] = StudyPlace[info.fields['Study Place']] || {
           userCounter: 0,
           xpCounter: 0,
         };
         StudyPlace[info.fields['Study Place']].xpCounter += Number(info.fields['Daily XP'][0]);
         StudyPlace[info.fields['Study Place']].userCounter += 1;
-      } catch (error) {
-        console.error(error);
-      } try {
+      }
+      if (info.fields.Neighborhood) {
         Neighborhood[info.fields.Neighborhood] = Neighborhood[info.fields.Neighborhood] || {
           userCounter: 0,
           xpCounter: 0,
         };
         Neighborhood[info.fields.Neighborhood].xpCounter += Number(info.fields['Daily XP'][0]);
         Neighborhood[info.fields.Neighborhood].userCounter += 1;
-      } catch (error) {
-        console.error(error);
-      } try {
+      }
+      if (info.fields.Province) {
         Province[info.fields.Province] = Province[info.fields.Province] || {
           userCounter: 0,
           xpCounter: 0,
         };
         Province[info.fields.Province].xpCounter += Number(info.fields['Daily XP'][0]);
         Province[info.fields.Province].userCounter += 1;
-      } catch (error) {
-        console.error(error);
       }
     });
 
@@ -46,17 +42,16 @@ export const fetchRanksData = createAsyncThunk(
     Neighborhood = Object.entries(Neighborhood).sort((a, b) => b[1].xpCounter - a[1].xpCounter);
     Province = Object.entries(Province).sort((a, b) => b[1].xpCounter - a[1].xpCounter);
 
-    return [StudyPlace, Neighborhood, Province, infoRecords.map((user) => user.fields)];
+    return [StudyPlace, Neighborhood, Province];
   },
 );
 
 export const rankSlice = createSlice({
   name: 'info',
   initialState: {
-    StudyPlace: [],
+    'Study Place': [],
     Neighborhood: [],
     Province: [],
-    Users: [],
     loading: true,
     error: null,
   },
@@ -68,11 +63,10 @@ export const rankSlice = createSlice({
       })
       .addCase(fetchRanksData.fulfilled, (state, action) => {
         state.loading = false;
-        const [StudyPlace, Neighborhood, Province, users] = action.payload;
-        state.StudyPlace = StudyPlace;
+        const [StudyPlace, Neighborhood, Province] = action.payload;
+        state['Study Place'] = StudyPlace;
         state.Neighborhood = Neighborhood;
         state.Province = Province;
-        state.Users = users;
       })
       .addCase(fetchRanksData.rejected, (state, action) => {
         state.loading = false;

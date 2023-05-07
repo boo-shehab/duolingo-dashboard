@@ -107,7 +107,7 @@
   }
 
   .icon-triangle {
-    width: 6.5px;
+    width: calc(1px + 2.5vw);
   }
 }
 
