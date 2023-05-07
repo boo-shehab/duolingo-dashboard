@@ -23,7 +23,7 @@ const RankListItem = ({ typeOfItem }) => {
   };
 
   const onRowClick = (e) => {
-    window.location.href = `${window.location.origin}/duolingo-dashboard/users/${e[0]}/${e[1]}`;
+    window.location.href = `${window.location.origin}/duolingo-dashboard/#/users/${e[0]}/${e[1]}`;
   };
 
   if (loading) {

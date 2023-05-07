@@ -1,7 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
 import {
-  BrowserRouter as Router, Routes, Route, Link,
+  HashRouter as Router,
+  Routes,
+  Route,
+  Link,
 } from 'react-router-dom';
 import Leaderboard from './components/Leaderboard';
 import './App.css';
@@ -13,27 +14,26 @@ function App() {
     <Router>
       <ul className="filter-buttons">
         <li>
-          <Link to="/duolingo-dashboard">All</Link>
+          <Link to="/">All</Link>
         </li>
         <li>
-          <Link to="/duolingo-dashboard/Study Place">Study</Link>
+          <Link to="/Study Place">Study</Link>
         </li>
         <li>
-          <Link to="/duolingo-dashboard/Neighborhood">City</Link>
+          <Link to="/Neighborhood">City</Link>
         </li>
         <li>
-          <Link to="/duolingo-dashboard/Province">Province</Link>
+          <Link to="/Province">Province</Link>
         </li>
         <li>
-          <Link to="/duolingo-dashboard/users">Users</Link>
+          <Link to="/users">Users</Link>
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<Leaderboard />} />
-        <Route path="/duolingo-dashboard" element={<Leaderboard />} />
-        <Route path="/duolingo-dashboard/users" element={<RankListUsers showTop3 />} />
-        <Route path="/duolingo-dashboard/users/:filterKey/:filterValue" element={<RankListUsers showTop3 />} />
-        <Route path="/duolingo-dashboard/:filter" element={<RankListItem />} />
+        <Route exact path="/" element={<Leaderboard />} />
+        <Route path="/users" element={<RankListUsers showTop3 />} />
+        <Route path="/users/:filterKey/:filterValue" element={<RankListUsers showTop3 />} />
+        <Route path="/:filter" element={<RankListItem />} />
       </Routes>
     </Router>
   );
