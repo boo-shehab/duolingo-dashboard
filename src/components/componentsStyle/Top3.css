@@ -1,0 +1,119 @@
+.top3-container {
+  margin-bottom: 85px;
+}
+
+.topUsers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  grid-auto-flow: column;
+  gap: 27px;
+  grid-template-columns: 5fr 4fr 5fr;
+}
+
+.topUser {
+  width: 33%;
+  text-align: center;
+  background-color: white;
+  border-radius: 50px;
+  color: #a9a9a9;
+  font-size: 26px;
+  position: relative;
+  padding: 15px;
+}
+
+.topUser .user-image {
+  width: 65%;
+  margin: auto;
+  position: relative;
+}
+
+.topUser .user-image::before {
+  content: '';
+  background-image: url("../../images/medal_coin_top_2.svg");
+  background-position: center;
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  transform: translate(0%, 0%);
+}
+
+.topUser:nth-of-type(1) .user-image::before {
+  background-image: url("../../images/medal_coin_top_1.svg");
+}
+
+.topUser:nth-of-type(2) .user-image::before {
+  background-image: url("../../images/medal_coin_top_2.svg");
+}
+
+.topUser:nth-of-type(3) .user-image::before {
+  background-image: url("../../images/medal_coin_top_3.svg");
+}
+
+.topUser .user-image img {
+  width: 100%;
+  border-radius: 50%;
+  padding: 5px;
+  outline: 3px solid #dadada;
+}
+
+.TopUser-xp {
+  color: #f2b800;
+  line-height: 52px;
+  font-weight: 700;
+}
+
+.topUser.user1 {
+  order: 2;
+  padding-bottom: 35px;
+}
+
+.topUser.user1 .user-image {
+  width: 80%;
+}
+
+.topUser.user2 {
+  order: 1;
+}
+
+.topUser.user3 {
+  order: 3;
+}
+
+.icon-triangle {
+  width: 28px;
+}
+
+@media screen and (max-width: 700px) {
+  .topUsers {
+    gap: 9px;
+  }
+
+  .TopUser-xp {
+    font-size: calc(1px + 2.5vw);
+  }
+
+  .topUser {
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  .TopUser-name {
+    font-weight: 800;
+    font-size: calc(1px + 2.5vw);
+  }
+
+  .icon-triangle {
+    width: calc(1px + 2.5vw);
+  }
+}
+
+@media (min-width: 767.98px) {
+  .topUser .user-image::before {
+    width: 45px;
+    height: 45px;
+  }
+}

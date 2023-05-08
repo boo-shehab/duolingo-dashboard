@@ -1,0 +1,21 @@
+.loading-page {
+  display: grid;
+  position: fixed;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.loading-page img {
+  width: 300px;
+}
+
+.loading-page h2 {
+  font-size: 40px;
+  line-height: 67px;
+  text-align: center;
+  color: #fff;
+}
