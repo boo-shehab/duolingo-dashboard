@@ -12,29 +12,41 @@ export const fetchRanksData = createAsyncThunk(
     let Neighborhood = {};
     let Province = {};
     infoRecords.forEach((info) => {
-      if (info.fields['Study Place']) {
-        StudyPlace[info.fields['Study Place']] = StudyPlace[info.fields['Study Place']] || {
-          userCounter: 0,
-          xpCounter: 0,
-        };
-        StudyPlace[info.fields['Study Place']].xpCounter += Number(info.fields['Daily XP'][0]);
-        StudyPlace[info.fields['Study Place']].userCounter += 1;
+      try {
+        if (info.fields['Study Place']) {
+          StudyPlace[info.fields['Study Place']] = StudyPlace[info.fields['Study Place']] || {
+            userCounter: 0,
+            xpCounter: 0,
+          };
+          StudyPlace[info.fields['Study Place']].xpCounter += Number(info.fields['Daily XP'][0]);
+          StudyPlace[info.fields['Study Place']].userCounter += 1;
+        }
+      } catch (e) {
+        console.log(e);
       }
-      if (info.fields.Neighborhood) {
-        Neighborhood[info.fields.Neighborhood] = Neighborhood[info.fields.Neighborhood] || {
-          userCounter: 0,
-          xpCounter: 0,
-        };
-        Neighborhood[info.fields.Neighborhood].xpCounter += Number(info.fields['Daily XP'][0]);
-        Neighborhood[info.fields.Neighborhood].userCounter += 1;
+      try {
+        if (info.fields.Neighborhood) {
+          Neighborhood[info.fields.Neighborhood] = Neighborhood[info.fields.Neighborhood] || {
+            userCounter: 0,
+            xpCounter: 0,
+          };
+          Neighborhood[info.fields.Neighborhood].xpCounter += Number(info.fields['Daily XP'][0]);
+          Neighborhood[info.fields.Neighborhood].userCounter += 1;
+        }
+      } catch (e) {
+        console.log(e);
       }
-      if (info.fields.Province) {
-        Province[info.fields.Province] = Province[info.fields.Province] || {
-          userCounter: 0,
-          xpCounter: 0,
-        };
-        Province[info.fields.Province].xpCounter += Number(info.fields['Daily XP'][0]);
-        Province[info.fields.Province].userCounter += 1;
+      try {
+        if (info.fields.Province) {
+          Province[info.fields.Province] = Province[info.fields.Province] || {
+            userCounter: 0,
+            xpCounter: 0,
+          };
+          Province[info.fields.Province].xpCounter += Number(info.fields['Daily XP'][0]);
+          Province[info.fields.Province].userCounter += 1;
+        }
+      } catch (e) {
+        console.log(e);
       }
     });
 
